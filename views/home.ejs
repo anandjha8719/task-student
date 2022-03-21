@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="css/home.css">
+<section id="all-students">
+    <h4>Students</h4>
+    <div id="students-container">
+        <ul>
+            <% for(s of all_students){%>
+                <li class="one-student">
+                    <p>Name: <%= s.name %></p>
+                    <p>DoB: <%= s.dob %></p>
+                    <p>School: <%= s.school %></p>
+                    <p>Class: <%= s.class %></p>
+                    <p>Division: <%= s.division %></p>
+                    <% if(s.status == 1) {%>
+                        <p>Status: active</p>
+                    <% } else { %>
+                        <p>Status: inactive</p> 
+                    <% } %>
+                    <p class="delete">
+                        <a href="/delete/?id=<%=s._id%>">
+                            delete Student
+                        </a>
+                    </p>
+                </li>
+            <% } %>
+        </ul>
+        
+    </div>
+</section>
+
+<%- include('_create-new') -%>
+
+
+<script src="js/home.js"></script>
